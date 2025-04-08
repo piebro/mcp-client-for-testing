@@ -1,0 +1,31 @@
+[project]
+name = "mcp-client-for-testing"
+version = "0.1.0"
+description = "A minimalistic MCP client for testing MCP Server"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ruff",
+    "mcp",
+]
+
+license = { file = "LICENSE.md" }
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "F",        # Pyflakes
+    "UP",       # pyupgrade
+    "B018",     # Found useless expression.
+    "I",        # isort
+    "RUF",      # ruff
+]
+ignore = [
+  "E501", # line too long - will be fixed in format
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
