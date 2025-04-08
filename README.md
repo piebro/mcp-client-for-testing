@@ -10,7 +10,7 @@ A minimalistic MCP client for testing MCP Server
 
 ## Usage
 
-Run `client.py` and past your `config.json`.
+Run `client.py` and paste your `config.json`.
 
 ```bash
 uv run client.py \
