@@ -26,7 +26,7 @@ uvx mcp-client-for-testing \
     --tool_call '{"name": "tool-name", "arguments": {}}'
 ```
 
-To use it as in your code, install the package with:
+To use it in code, install the package:
 
 ```bash
 uv pip install mcp-client-for-testing 
@@ -61,6 +61,29 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+## Example
+
+Use the [echo-mcp-server-for-testing](https://github.com/piebro/echo-mcp-server-for-testing) with `uvx` to test the MCP client.
+
+```bash
+uvx mcp-client-for-testing \
+    --config '
+    [
+        {
+            "name": "echo-mcp-server-for-testing",
+            "command": "uvx",
+            "args": [
+                "echo-mcp-server-for-testing"
+            ],
+            "env": {
+                "SECRET_KEY": "123456789"
+            }
+        }
+    ]
+    ' \
+    --tool_call '{"name": "echo_tool", "arguments": {"message": "Hello, world!"}}'
+```
+
 ## Development
 
 ### Installation from source
@@ -69,9 +92,18 @@ if __name__ == "__main__":
 2. Go into the root dir `cd mcp-client-for-testing`.
 3. Install in development mode: `uv pip install -e .`
 
+### Formatting and Linting
+
+The code is formatted and linted with ruff:
+
+```bash
+uv run ruff format
+uv run ruff check --fix
+```
+
 ### Building with uv
 
-If you want to build distribution packages:
+Build the package using uv:
 
 ```bash
 uv build

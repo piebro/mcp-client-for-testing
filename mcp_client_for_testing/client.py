@@ -10,7 +10,7 @@ async def execute_tool(config, tool_call):
     """Run the MCP client with the given configuration and tool call."""
     print(f"Config: {config}")
     print(f"Tool call: {tool_call}")
-    
+
     for server_config in config:
         server_params = StdioServerParameters(
             command=server_config.get("command"),
@@ -38,11 +38,11 @@ async def async_main():
     parser = argparse.ArgumentParser(description="MCP Client for Testing")
     parser.add_argument("--config", type=str, help="JSON configuration string")
     parser.add_argument("--tool_call", type=str, help="Tool call to execute")
-    
+
     args = parser.parse_args()
     config = json.loads(args.config)
     tool_call = json.loads(args.tool_call)
-    
+
     await execute_tool(config, tool_call)
 
 
@@ -51,4 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()
