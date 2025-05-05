@@ -118,8 +118,8 @@ async def async_main():
         client_logger.critical(f"Failed to parse JSON input: {e}")
         sys.exit(1)
 
-    await execute_tool(config, tool_call, server_log_level_int)
-
+    results = await execute_tool(config, tool_call, server_log_level_int)
+    print(results)
 
 def main():
     try:

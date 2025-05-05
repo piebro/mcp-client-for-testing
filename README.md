@@ -24,7 +24,7 @@ uvx mcp-client-for-testing \
     ]
     ' \
     --client_log_level "WARNING" \
-	--server_log_level "INFO" \
+    --server_log_level "INFO" \
     --tool_call '{"name": "tool-name", "arguments": {}}'
 ```
 
