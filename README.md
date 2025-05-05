@@ -38,8 +38,7 @@ and use it like this:
 
 ```python
 import asyncio
-import logging
-import json
+
 from mcp_client_for_testing.client import execute_tool
 
 async def main():
@@ -58,7 +57,7 @@ async def main():
     ]
     tool_call = {"name": "tool-name", "arguments": {}}
     
-    await execute_tool(config, tool_call, server_log_level_int=logging.DEBUG)
+    await execute_tool(config, tool_call)
 
 if __name__ == "__main__":
     asyncio.run(main())

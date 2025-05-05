@@ -36,7 +36,7 @@ async def debug_log_handler(params: types.LoggingMessageNotificationParams, serv
         server_logger.error(params.data)
 
 
-async def execute_tool(config, tool_call, server_log_level_int: int):
+async def execute_tool(config, tool_call, server_log_level_int=logging.INFO):
     """Run the MCP client, connecting to servers and executing a tool."""
     client_logger.info(f"Using Config: {config}")
     client_logger.info(f"Executing Tool Call: {tool_call}")
